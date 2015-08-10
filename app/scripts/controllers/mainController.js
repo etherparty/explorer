@@ -10,7 +10,7 @@ angular.module('ethExplorer')
 
                 var regexpTx = /[0-9a-zA-Z]{64}?/;
                 var regexpAddr =  /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/; // TODO ADDR REGEX or use isAddress(hexString) API ?
-                var regexpBlock = /^[0-9a-f]{64}$/i; // TODO BLOCK REGEX
+                var regexpBlock = /[0-9]{1,7}?/;
 
                 var result =regexpTx.test(requestStr);
                 if (result===true){
