@@ -1,113 +1,65 @@
-<div class="container">
+<div class="container" style="padding-top:3%;">
 
+    <h1>Block
+        <small>View information about an Ethereum Block</small>
+    </h1>
 
-    <h1 style="padding-bottom:10px">Block #369118</h1>
-
-    <div class="row-fluid">
-        <div class="span6">
-            <table class="table table-striped">
-                <tbody><tr>
-                    <th colspan="2">Summary</th>
-                </tr>
-                <tr>
-                    <td>Number Of Transactions</td>
-                    <td>332</td>
-                </tr>
-                <tr>
-                    <td>Output Total</td>
-                    <td><span data-c="121286850282" data-time="1439144313000" data-original-title="">1,212.86850282 BTC</span></td>
-                </tr>
-                <tr>
-                    <td>Estimated Transaction Volume</td>
-                    <td><span data-c="41984655328" data-time="1439144313000">419.84655328 BTC</span></td>
-                </tr>
-                <tr>
-                    <td>Transaction Fees</td>
-                    <td><span data-c="5721473" data-time="1439144313000">0.05721473 BTC</span></td>
-                </tr>
-                <tr>
-                    <td>Height</td>
-                    <td><a href="/block-height/369118">369118</a> <font color="green">(Main Chain)</font></td>
-                </tr>
-                <tr>
-                    <td>Timestamp</td>
-                    <td>2015-08-09 18:18:33</td>
-                </tr>
-
-                <tr>
-                    <td>Received Time</td>
-                    <td>2015-08-09 18:18:33
-                    </td>
-                </tr>
-                <tr>
-                    <td>Relayed By</td>
-                    <td><a href="/blocks/F2Pool">F2Pool</a></td>
-                </tr>
-
-                <tr>
-                    <td>Difficulty</td>
-                    <td>52,699,842,409.35</td>
-                </tr>
-                <tr>
-                    <td>Bits</td>
-                    <td>404020484</td>
-                </tr>
-                <tr>
-                    <td>Size</td>
-                    <td>243.9013671875 KB</td>
-                </tr>
-                <tr>
-                    <td>Version</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>Nonce</td>
-                    <td>2262402509</td>
-                </tr>
-                <tr>
-                    <td>Block Reward</td>
-                    <td><span data-c="2500000000" data-time="1439144313000">25 BTC</span></td>
-                </tr>
-                </tbody></table>
+    <div id="block-97785883" class="blockdiv">
+        <table class="table table-striped" cellpadding="0" cellspacing="0" style="padding:0px;float:left;margin:0px;width:100%">
+            <tbody>
+            <tr>
+                <th colspan="3" align="left"><a class="hash-link" href="./#/block/{{blockId}}">{{hash}}</a> <span class="pull-right"></span></th>
+            </tr>
+            </tbody>
+        </table>
+        <div style="padding-bottom:30px;width:100%;text-align:right;clear:both">
+            <button class="btn btn-primary">{{conf}} Confirmations</button>
+            <button class="btn btn-success cb"><span>{{gasUsed}} Gas Used</span></button>
         </div>
+        <table class="table table-striped">
+            <tbody><tr>
+                <th colspan="2" style="text-align:left">Summary</th>
+            </tr>
+            <tr>
+                <td>Block Number</td>
+                <td><a href="./#/block/{{blockNumber}}">{{blockId}}</a></td>
+            </tr>
+            <tr>
+                <td>Received Time</td>
+                <td>
+                    {{timestamp}}
+                </td>
+            </tr>
+            <tr>
+                <td>Difficulty</td>
+                <td>
+                    {{difficulty}}
+                </td>
+            </tr>
+            <tr>
+                <td>Nonce</td>
+                <td>{{nonce}}</td>
+            </tr>
+            <tr>
+                <td>Size</td>
+                <td>{{size}}</td>
+            </tr>
+            <tr>
+                <td>Miner</td>
+                <td>{{miner}}</td>
+            </tr>
+            <tr>
+                <td>Gas Limit</td>
+                <td>{{gasLimit}}</td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td>{{extraData}}</td>
+            </tr>
 
-        <div class="span6">
-            <table class="table table-striped">
-                <tbody><tr>
-                    <th colspan="2">Hashes</th>
-                </tr>
-                <tr>
-                    <td>Hash</td>
-                    <td><a class="hash-link" href="/block/00000000000000001023eac0f1d063cdfa73af1cc11645c9ef483f96d8bfc093">00000000000000001023eac0f1d063cdfa73af1cc11645c9ef483f96d8bfc093</a>
-                    </td>
-                </tr>
-                <tr>
 
-                    <td>Previous Block</td>
-                    <td><a class="hash-link" href="/block/0000000000000000142ad7f04a8de09dfbae90920493412b961ec4e3d2387426">0000000000000000142ad7f04a8de09dfbae90920493412b961ec4e3d2387426</a></td>
-                </tr>
-                <tr>
-                    <td>Next Block(s)</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Merkle Root</td>
-                    <td class="hash-link">fadaa197ec8153795ffa03c62d1b3f5bf9f3a812a4881110822e6d404cdd656d</td>
-                </tr>
-                </tbody></table>
-
-
-            <table class="table table-striped">
-                <tbody><tr>
-                    <th colspan="2">Network Propagation <a href="/inv/00000000000000001023eac0f1d063cdfa73af1cc11645c9ef483f96d8bfc093">(Click To View)</a></th>
-                </tr>
-                <tr>
-                    <td style="text-align:center"><a href="/inv/00000000000000001023eac0f1d063cdfa73af1cc11645c9ef483f96d8bfc093"><img src="https://maps.googleapis.com/maps/api/staticmap?center=39.928894,116.388306&amp;zoom=4&amp;size=480x180&amp;maptype=roadmap&amp;markers=39.928894,116.388306&amp;sensor=false"></a></td>
-                </tr>
-                </tbody></table>
-
-        </div>
-
+            </tbody>
+        </table>
     </div>
+
 </div>
