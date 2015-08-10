@@ -1,5 +1,4 @@
-# EthExplorer
-####In Progress
+# EthExplorer (In Progress)
 
 ----
 
