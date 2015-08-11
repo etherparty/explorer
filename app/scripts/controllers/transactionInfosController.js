@@ -51,9 +51,7 @@ angular.module('ethExplorer')
                     if($scope.blockNumber!==undefined){
                         var info = web3.eth.getBlock($scope.blockNumber);
                         if(info!==undefined){
-                            var newDate = new Date();
-                            newDate.setTime(info.timestamp*1000);
-                            $scope.time = newDate.toUTCString();
+                            $scope.time = info.timestamp;
                         }
                     }
 
