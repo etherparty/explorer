@@ -31,7 +31,7 @@ angular.module('ethExplorer')
                     $scope.gasLimit = result.gasLimit;
                     $scope.gasUsed = result.gasUsed;
                     $scope.nonce = result.nonce;
-                    $scope.difficulty = result.difficulty;
+                    $scope.difficulty = ("" + result.difficulty).replace(/['"]+/g, '');
                     $scope.gasLimit = result.gasLimit; // that's a string
                     $scope.nonce = result.nonce;
                     $scope.number = result.number;
@@ -85,7 +85,6 @@ angular.module('ethExplorer')
 
         };
         $scope.init();
-        console.log($scope.result);
 
 function hex2a(hexx) {
     var hex = hexx.toString();//force conversion
