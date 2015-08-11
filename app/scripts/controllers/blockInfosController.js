@@ -39,6 +39,7 @@ angular.module('ethExplorer')
                     $scope.blockNumber = result.number;
                     $scope.timestamp = result.timestamp;
                     $scope.extraData = result.extraData;
+                    $scope.dataFromHex = hex2a(result.extraData);
                     $scope.size = result.size;
                     if($scope.blockNumber!==undefined){
                         $scope.conf = number - $scope.blockNumber;
@@ -82,9 +83,15 @@ angular.module('ethExplorer')
             }
 
 
-
         };
         $scope.init();
         console.log($scope.result);
 
-    });
+function hex2a(hexx) {
+    var hex = hexx.toString();//force conversion
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    return str;
+}
+});
