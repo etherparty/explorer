@@ -42,9 +42,9 @@ angular.module('ethExplorer')
                     $scope.dataFromHex = hex2a(result.extraData);
                     $scope.size = result.size;
                     if($scope.blockNumber!==undefined){
-                        $scope.conf = number - $scope.blockNumber;
-                        if($scope.conf===0){
-                            $scope.conf='unconfirmed';
+                        $scope.conf = number - $scope.blockNumber + " Confirmations";
+                        if($scope.conf===0 + " Confirmations"){
+                            $scope.conf='Unconfirmed';
                         }
                     }
                     if($scope.blockNumber!==undefined){
