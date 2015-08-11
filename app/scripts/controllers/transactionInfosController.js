@@ -33,14 +33,14 @@ angular.module('ethExplorer')
                     }
                     $scope.from = result.from;
                     $scope.gas = result.gas;
-                    $scope.gasPrice = result.gasPrice.c[0];
+                    $scope.gasPrice = result.gasPrice.c[0] + " WEI";
                     $scope.hash = result.hash;
                     $scope.input = result.input; // that's a string
                     $scope.nonce = result.nonce;
                     $scope.to = result.to;
                     $scope.transactionIndex = result.transactionIndex;
-                    $scope.ethValue = result.value.c[0] / 10000; // value in WEI
-                    $scope.txprice = ($scope.gas*$scope.gasPrice)/1000000000000000000;
+                    $scope.ethValue = result.value.c[0] / 10000; 
+                    $scope.txprice = (result.gas * result.gasPrice)/1000000000000000000 + " ETH";
                     if($scope.blockNumber!==undefined){
                         $scope.conf = number - $scope.blockNumber;
                         if($scope.conf===0){
