@@ -41,6 +41,8 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <!--Core-->
   <script src="app.js"></script>
 
@@ -51,7 +53,20 @@
   <script src="scripts/controllers/transactionInfosController.js"></script>
 
   <!--Services-->
-
+    <div id="connectwarning" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+                
+            <!-- Modal content-->
+            <div class="modal-content">
+                <center><div class="modal-header">
+                    <h4 class="modal-title">Allow Access to Geth</h4>
+                </div>
+                <div class="modal-body">
+                    <code><p id="modaltext"></p></code>
+                </div></center>
+            </div>
+        </div>
+    </div>
 
 
 <div class="footer" style="bottom: 0px;text-align: center;background-color: white; width:100%;">
@@ -62,5 +77,7 @@
         </p>
     </footer>
 </div>
-</body>
+<script>
+$("#modaltext").text( 'geth --rpc --rpccorsdomain "'+ window.location.protocol + '//' + window.location.host + '"' );
+</script></body>
 </html>

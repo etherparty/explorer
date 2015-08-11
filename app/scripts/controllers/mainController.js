@@ -1,6 +1,5 @@
 angular.module('ethExplorer')
     .controller('mainCtrl', function ($rootScope, $scope, $location) {
-
         $scope.processRequest= function(){
             var requestStr = $scope.ethRequest;
 
