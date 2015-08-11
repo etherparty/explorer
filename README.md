@@ -9,3 +9,5 @@
 `npm install`
 
 `npm start`
+
+Then visit http://localhost:8000 in your browser of choice
