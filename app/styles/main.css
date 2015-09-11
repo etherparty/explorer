@@ -28,3 +28,7 @@
   content: "";
   padding: 0;
 }
+
+// make the geth dialogue wider
+#connectwarning {width:900px;}
+#connectwarning-dialog   {width:900px;}
