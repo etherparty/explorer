@@ -5,3 +5,5 @@ bower_components/
 tmp
 .DS_Store
 .idea
+app/.divshot-cache/
+app/divshot.json
