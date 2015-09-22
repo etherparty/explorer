@@ -55,8 +55,9 @@
 
   <!--Services-->
     <div id="connectwarning" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-                
+    	<!-- begin AltSheets -->
+        <div id="connectwarning-dialog" class="modal-dialog">
+        <!-- end AltSheets -->        
             <!-- Modal content-->
             <div class="modal-content">
                 <center><div class="modal-header">
@@ -79,7 +80,9 @@
     </footer>
 </div>
 <script>
-$("#modaltext").text( 'geth --rpc --rpccorsdomain "'+ window.location.protocol + '//' + window.location.host + '"' );
+// begin AltSheets
+$("#modaltext").text( geth_command );
+// end AltSheets
 </script>
 </body>
 </html>
