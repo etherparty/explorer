@@ -18,11 +18,13 @@ Clone the repo
 `git clone https://github.com/etherparty/explorer`
 
 Start the program. All dependencies will be automatically downloaded
+
 `npm start`
 
 Then visit http://localhost:8000 in your browser of choice. You might get an error message:
+
 `geth --rpc --rpccorsdomain "http://localhost:8000"`
 
 Install [geth](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum "Geth install") if you don't already have it, then run the above command.
 
-THen refresh the page in your browser 
+Then refresh the page in your browser 
