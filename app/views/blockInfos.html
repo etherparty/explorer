@@ -1,4 +1,4 @@
-<div class="container" style="padding-top:3%;">
+<div class="container" style="padding-top: 50px;">
 
     <h1>Block
         <small>View information about an Ethereum Block</small>
@@ -64,6 +64,46 @@
 
             </tbody>
         </table>
+    </div>
+
+    <h2 style="margin-top: 30px;">
+      Transactions
+      <small>- contained in current block</small>
+    </h2>
+
+    <div ng-repeat="tx in transactions">
+      <table class="table table-striped">
+          <tbody>
+          <tr>
+              <th colspan="2" style="text-align:left">Transaction #{{$index+1}}</th>
+          </tr>
+          <tr>
+              <td>Hash #</td>
+              <td><a href="./#/transaction/{{tx.hash}}">{{tx.hash}}</a></td>
+          </tr>
+          <tr>
+              <td>From</td>
+              <td><a href="./#/address/{{tx.from}}">{{tx.from}}</a></td>
+          </tr>
+          <tr>
+              <td>To</td>
+              <td><a href="./#/address/{{tx.to}}">{{tx.to}}</a></td>
+          </tr>
+          <tr>
+              <td>Gas</td>
+              <td>{{tx.gas}}</a></td>
+          </tr>
+          <tr>
+              <td>Input</td>
+              <td>{{tx.input}}</a></td>
+          </tr>
+          <tr>
+              <td>Value</td>
+              <td>{{tx.value}}</a></td>
+          </tr>
+          </tbody>
+      </table>
+      <hr>
     </div>
 
 </div>

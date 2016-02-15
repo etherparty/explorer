@@ -56,6 +56,8 @@ angular.module('ethExplorer')
                         }
                     }
 
+
+
                 });
 
             }
@@ -71,10 +73,9 @@ angular.module('ethExplorer')
                 var deferred = $q.defer();
 
                 web3.eth.getBlock   ($scope.blockId,function(error, result) {
-                    if(!error){
+                    if(!error) {
                         deferred.resolve(result);
-                    }
-                    else{
+                    } else {
                         deferred.reject(error);
                     }
                 });
@@ -85,6 +86,31 @@ angular.module('ethExplorer')
 
         };
         $scope.init();
+
+        // parse transactions
+        $scope.transactions = []
+        web3.eth.getBlockTransactionCount($scope.blockId, function(error, result){
+          var txCount = result
+
+          for (var blockIdx = 0; blockIdx < txCount; blockIdx++) {
+            web3.eth.getTransactionFromBlock($scope.blockId, blockIdx, function(error, result) {
+
+              var transaction = {
+                id: result.hash,
+                hash: result.hash,
+                from: result.from,
+                to: result.to,
+                gas: result.gas,
+                input: result.input,
+                value: result.value
+              }
+              $scope.$apply(
+                $scope.transactions.push(transaction)
+              )
+            })
+          }
+        })
+
 
 function hex2a(hexx) {
     var hex = hexx.toString();//force conversion
