@@ -1,7 +1,11 @@
 angular.module('ethExplorer')
     .controller('mainCtrl', function ($rootScope, $scope, $location) {
+
+        $scope.blockNum = web3.eth.blockNumber;
+
         $scope.processRequest= function(){
             var requestStr = $scope.ethRequest;
+
 
             if (requestStr!==undefined){
 
