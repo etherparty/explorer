@@ -27,7 +27,8 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
     }])
     .run(function($rootScope) {
         var web3 = require('web3');
-        web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
+        var eth_node_url = process.env["ETHEREUM_URL"] || "http://localhost:8545";
+        web3.setProvider(new web3.providers.HttpProvider(eth_node_url));
         $rootScope.web3=web3;
         function sleepFor( sleepDuration ){
             var now = new Date().getTime();
