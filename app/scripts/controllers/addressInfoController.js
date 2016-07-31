@@ -1,5 +1,5 @@
 angular.module('ethExplorer')
-    .controller('addressInfosCtrl', function ($rootScope, $scope, $location, $routeParams, $q) {
+    .controller('addressInfoCtrl', function ($rootScope, $scope, $location, $routeParams, $q) {
 
       $scope.init=function(){
 
