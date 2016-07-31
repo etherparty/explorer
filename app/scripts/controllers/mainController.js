@@ -4,41 +4,19 @@ angular.module('ethExplorer')
         $scope.blockNum = web3.eth.blockNumber;
 
         $scope.processRequest= function(){
-            var requestStr = $scope.ethRequest;
+             var requestStr = $scope.ethRequest.split('0x').join('');
 
+            if(requestStr.length === 40)
+              return goToAddrInfos(requestStr)
+            else if(requestStr.length === 64){
+              if(/[0-9a-zA-Z]{64}?/.test(requestStr))
+                return goToTxInfos(requestStr)
+              else if(/[0-9]{1,7}?/.test(requestStr))
+                return goToBlockInfos(requestStr)
+            }else if(parseInt(requestStr) > 0)
+              return goToBlockInfos(parseInt(requestStr))
 
-            if (requestStr!==undefined){
-
-                // maybe we can create a service to do the reg ex test, so we can use it in every controller ?
-
-                var regexpTx = /[0-9a-zA-Z]{64}?/;
-                var regexpAddr =  /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/; // TODO ADDR REGEX or use isAddress(hexString) API ?
-                var regexpBlock = /[0-9]{1,7}?/;
-
-                var result =regexpTx.test(requestStr);
-                if (result===true){
-                    goToTxInfos(requestStr)
-                }
-                else{
-                    result = regexpAddr.test(requestStr);
-                    if (result===true){
-                        goToAddrInfos(requestStr)
-                    }
-                    else{
-                        result = regexpBlock.test(requestStr);
-                        if (result===true){
-                            goToBlockInfos(requestStr)
-                        }
-                        else{
-                            console.log("nope");
-                            return null;
-                        }
-                    }
-                }
-            }
-            else{
-                return null;
-            }
+            alert('Don\'t know how to handle '+ requestStr)
         };
 
 
