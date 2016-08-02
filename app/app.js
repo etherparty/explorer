@@ -18,8 +18,8 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
                 controller: 'transactionInfosCtrl'
             }).
             when('/address/:addressId', {
-                templateUrl: 'views/addressInfos.html',
-                controller: 'addressInfosCtrl'
+                templateUrl: 'views/addressInfo.html',
+                controller: 'addressInfoCtrl'
             }).
             otherwise({
                 redirectTo: '/'
@@ -27,7 +27,7 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
     }])
     .run(function($rootScope) {
         var web3 = require('web3');
-        var eth_node_url = process.env["ETHEREUM_URL"] || "http://localhost:8545";
+        var eth_node_url = 'http://localhost:8545';
         web3.setProvider(new web3.providers.HttpProvider(eth_node_url));
         $rootScope.web3=web3;
         function sleepFor( sleepDuration ){
