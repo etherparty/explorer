@@ -11,7 +11,7 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
-    "web3": "~0.12.0",
+    "web3": "~0.14.0",
     "angular-bootstrap": "~0.13.3"
   }
 }

@@ -1,12 +1,12 @@
 angular.module('ethExplorer')
     .controller('blockInfosCtrl', function ($rootScope, $scope, $location, $routeParams,$q) {
 
-        $scope.init=function()
+	var web3 = $rootScope.web3;
+
+        $scope.init = function()
         {
 
-
-            $scope.blockId=$routeParams.blockId;
-
+            $scope.blockId = $routeParams.blockId;
 
             if($scope.blockId!==undefined) {
 
@@ -60,19 +60,15 @@ angular.module('ethExplorer')
 
                 });
 
-            }
-
-
-
-            else{
+            } else {
                 $location.path("/");
             }
 
 
-            function getBlockInfos(){
+            function getBlockInfos() {
                 var deferred = $q.defer();
 
-                web3.eth.getBlock   ($scope.blockId,function(error, result) {
+                web3.eth.getBlock($scope.blockId,function(error, result) {
                     if(!error) {
                         deferred.resolve(result);
                     } else {

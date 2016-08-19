@@ -1,14 +1,11 @@
 angular.module('ethExplorer')
     .controller('transactionInfosCtrl', function ($rootScope, $scope, $location, $routeParams,$q) {
 
+       var web3 = $rootScope.web3;
+	
         $scope.init=function()
         {
-
-
             $scope.txId=$routeParams.transactionId;
-
-
-
 
             if($scope.txId!==undefined) { // add a test to check if it match tx paterns to avoid useless API call, clients are not obliged to come from the search form...
 
