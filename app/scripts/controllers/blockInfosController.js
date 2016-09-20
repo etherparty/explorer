@@ -100,12 +100,19 @@ angular.module('ethExplorer')
                 input: result.input,
                 value: result.value
               }
-              $scope.$apply(
-                $scope.transactions.push(transaction)
-              )
-            })
+
+              web3.eth.getTransactionReceipt(result.hash, function (err2, receipt) {
+                if(!err2) {
+                    for (var attrname in receipt) { transaction[attrname] = receipt[attrname]; }
+                }
+
+                $scope.$apply(
+                  $scope.transactions.push(transaction)
+                );
+              });
+            });
           }
-        })
+        });
 
 
 function hex2a(hexx) {
