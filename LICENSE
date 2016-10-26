@@ -24,15 +24,6 @@ and under the GPLv3 license
 * Etherparty.io may grant exceptions in written form
 ----
 
-Etherparty may grant exceptions to this license in limited circumstances.
-Exceptions are only valid if signed with Etherparty's PGP key, which has
-the fingerprint of B2E79C048076360F8066F7C1E4A9CD9DE0D4C482. Such exceptions
-will be listed below, with a link to the full exception text.
-
-* Supermesh <http://0bin.net/paste/xD6W8V3npw9YyHTx#kKwn+PfYn-T/qlrwP6shy3qv92cKOysabM+mnAGSdkr>
-
-Above exceptions only apply to this code
-
 Any code before commit hash 7e79bc3965f05536acd933b6e984f691b1295469
 (inclusive) and/or is in the branch "MIT" is under the MIT license
 
