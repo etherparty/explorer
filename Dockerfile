@@ -1,11 +1,8 @@
-FROM iojs
-ADD app /app
-ADD .bowerrc /
-ADD bower.json /
-ADD karma.conf.js /
-ADD package.json /
-WORKDIR /
-RUN npm install
-ADD selectRpcAndRun.sh /
-CMD /selectRpcAndRun.sh
+FROM node:6
 
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+RUN npm install
+RUN chmod +x selectRpcAndRun.sh
+CMD ["selectRpcAndRun.sh"]
