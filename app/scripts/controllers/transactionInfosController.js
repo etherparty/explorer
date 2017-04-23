@@ -50,7 +50,7 @@ angular.module('ethExplorer')
                     if($scope.blockNumber!==undefined){
                         var info = web3.eth.getBlock($scope.blockNumber);
                         if(info!==undefined){
-                            $scope.time = info.timestamp;
+                            $scope.time = info.timestamp + '000';
                         }
                     }
 

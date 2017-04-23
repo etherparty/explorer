@@ -18,7 +18,7 @@
 	  <td><a href="/#/block/{{i.number}}">{{i.number}}</a></td>
 	  <td>{{i.transactions.length}}</td>
 	  <td>{{i.size}}</td>
-	  <td>{{i.timestamp}}</td>
+	  <td>{{i.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
         </tr>
 
       </tbody>
