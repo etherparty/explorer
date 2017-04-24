@@ -1,7 +1,7 @@
 <div class="container" style="padding-top: 50px;">
 
     <h4 style="text-align:center; margin-top: 30px;">
-      <a href="/#/block/{{blockNum}}">Latest Block: {{blockNum}}</a>
+      <a href="./#/block/{{blockNum}}">Latest Block: {{blockNum}}</a>
     </h4>
 
     <table class="table table-striped" cellpadding="0" cellspacing="0" style="padding:0px;float:left;margin:0px;width:100%">
@@ -13,7 +13,7 @@
 	  <th>Timestamp</th>
 	</tr>
 	<tr data-ng-repeat="i in blocks">
-	  <td><a href="/#/block/{{i.number}}">{{i.number}}</a></td>
+	  <td><a href="./#/block/{{i.number}}">{{i.number}}</a></td>
 	  <td>{{i.transactions.length}}</td>
 	  <td>{{i.size}}</td>
 	  <td>{{i.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
