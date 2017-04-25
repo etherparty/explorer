@@ -15,13 +15,14 @@
     "karma-jasmine": "^0.3.5",
     "karma-junit-reporter": "^0.2.2",
     "protractor": "^2.1.0",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "ethereum-input-data-decoder": "0.0.2"
   },
   "scripts": {
     "postinstall": "bower install",
 
     "prestart": "npm install",
-    "start": "http-server ./app -a localhost -p 8000 -c-1",
+    "start": "http-server ./app -a localhost -p 8001 -c-1",
 
     "pretest": "npm install",
     "test": "karma start karma.conf.js",

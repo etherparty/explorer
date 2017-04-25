@@ -2,6 +2,7 @@ angular.module('ethExplorer')
     .controller('transactionInfosCtrl', function ($rootScope, $scope, $location, $routeParams,$q) {
 
        var web3 = $rootScope.web3;
+       var abiDecoder = $rootScope.abiDecoder;
 	
         $scope.init=function()
         {
@@ -33,6 +34,7 @@ angular.module('ethExplorer')
                     $scope.gasPrice = result.gasPrice.c[0] + " WEI";
                     $scope.hash = result.hash;
                     $scope.input = result.input; // that's a string
+                    $scope.decoded = decodeData(result.input);
                     $scope.nonce = result.nonce;
                     $scope.to = result.to;
                     $scope.transactionIndex = result.transactionIndex;
@@ -78,7 +80,11 @@ angular.module('ethExplorer')
 
             }
 
-
+            function decodeData(data) {
+                abiDecoder.addABI([{"constant":false,"inputs":[{"name":"id","type":"uint256"},{"name":"detail","type":"string"}],"name":"write","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"id","type":"uint256"}],"name":"getReport","outputs":[{"name":"detail","type":"string"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"reports","outputs":[{"name":"id","type":"uint256"},{"name":"detail","type":"string"}],"payable":false,"type":"function"}]);
+                var decoded = abiDecoder.decodeMethod(data);
+                return JSON.stringify(decoded);
+            }
 
         };
         $scope.init();
