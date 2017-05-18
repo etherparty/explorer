@@ -18,4 +18,4 @@ Start the program. All dependencies will be automatically downloaded
 
 `npm start`
 
-Then visit http://localhost:8000 in your browser of choice. You might get an error message:
+Then visit http://localhost:8000 in your browser of choice.
