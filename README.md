@@ -1,4 +1,4 @@
-# EthExplorer (In Progress)
+# VChainExplorer (Demo)
 
 ![EthExplorer Screenshot](http://i.imgur.com/NHFYq0x.png)
 
