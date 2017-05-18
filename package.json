@@ -1,9 +1,9 @@
 {
-  "name": "EthereumExplorer",
+  "name": "VChainExplorer",
   "private": false,
   "version": "0.1.0",
-  "description": "A lightweight ethereum block explorer",
-  "repository": "https://github.com/etherparty/explorer",
+  "description": "A lightweight vchain block explorer",
+  "repository": "https://github.com/beyonderyue/explorer",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
@@ -21,7 +21,7 @@
     "postinstall": "bower install",
 
     "prestart": "npm install",
-    "start": "http-server ./app -a localhost -p 8000 -c-1",
+    "start": "http-server ./app -a 0.0.0.0 -p 80 -c-1",
 
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
