@@ -2,7 +2,7 @@ angular.module('ethExplorer')
     .controller('mainCtrl', function ($rootScope, $scope, $location) {
 
 	var web3 = $rootScope.web3;
-	var maxBlocks = 50; // TODO: into setting file or user select
+	var maxBlocks = 10; // TODO: into setting file or user select
 	var blockNum = $scope.blockNum = parseInt(web3.eth.blockNumber, 10);
 	if (maxBlocks > blockNum) {
 	    maxBlocks = blockNum + 1;
@@ -11,7 +11,13 @@ angular.module('ethExplorer')
 	// get latest 50 blocks
 	$scope.blocks = [];
 	for (var i = 0; i < maxBlocks; ++i) {
-	    $scope.blocks.push(web3.eth.getBlock(blockNum - i));
+        var block = {
+            number: web3.eth.getBlock(blockNum - i).number,
+            length: web3.eth.getBlock(blockNum - i).transactions.length,
+            size: web3.eth.getBlock(blockNum - i).size,
+            timestamp: new Date(parseInt(web3.eth.getBlock(blockNum - i).timestamp) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ')
+        }
+	    $scope.blocks.push(block);
 	}
 	
         $scope.processRequest = function() {
@@ -42,5 +48,11 @@ angular.module('ethExplorer')
          function goToTxInfos (requestStr) {
              $location.path('/transaction/'+requestStr);
         }
+
+        setInterval(function(){
+            if(blockNum != parseInt(web3.eth.blockNumber, 10)){
+                window.location.reload();
+            }
+        },5000);
 
     });
