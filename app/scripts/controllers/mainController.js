@@ -15,7 +15,7 @@ angular.module('ethExplorer')
             number: web3.eth.getBlock(blockNum - i).number,
             length: web3.eth.getBlock(blockNum - i).transactions.length,
             size: web3.eth.getBlock(blockNum - i).size,
-            timestamp: new Date(parseInt(web3.eth.getBlock(blockNum - i).timestamp) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ')
+            timestamp: new Date(parseInt(web3.eth.getBlock(blockNum - i).timestamp) * 1000).toLocaleString()
         }
 	    $scope.blocks.push(block);
 	}
