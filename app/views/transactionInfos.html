@@ -43,7 +43,7 @@
             <tr>
                 <td>Received Time</td>
                 <td>
-                    {{time}}
+                    {{time | date:'yyyy-MM-dd HH:mm:ss Z'}}
                 </td>
             </tr>
             <tr>
@@ -53,8 +53,16 @@
                 </td>
             </tr>
             <tr>
-                <td>Gas Used</td>
+                <td>Contract Address</td>
+                <td><a href="./#/address/{{contractAddress}}">{{contractAddress || '??'}}</a></td>
+            </tr>
+            <tr>
+                <td>Gas Sent</td>
                 <td>{{gas}}</td>
+            </tr>
+            <tr>
+                <td>Gas Used</td>
+                <td>{{gasUsed || '??'}}</td>
             </tr>
             <tr>
                 <td>Gas Price</td>

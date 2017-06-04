@@ -37,7 +37,7 @@ angular.module('ethExplorer')
                     $scope.number = result.number;
                     $scope.parentHash = result.parentHash;
                     $scope.blockNumber = result.number;
-                    $scope.timestamp = result.timestamp;
+                    $scope.timestamp = result.timestamp + '000';
                     $scope.extraData = result.extraData;
                     $scope.dataFromHex = hex2a(result.extraData);
                     $scope.size = result.size;
@@ -103,13 +103,22 @@ angular.module('ethExplorer')
                 input: result.input,
                 value: result.value
               }
-              $scope.$apply(
-                $scope.transactions.push(transaction)
-              )
-            })
+
+              web3.eth.getTransactionReceipt(result.hash, function (err2, receipt) {
+                if(!err2) {
+                    for (var attrname in receipt) { transaction[attrname] = receipt[attrname]; }
+                }
+
+                $scope.$apply(
+                  $scope.transactions.push(transaction)
+                );
+              });
+            });
           }
+
         } // getTransactions()
         //}) //getBlockTransactionCount
+
 
 function hex2a(hexx) {
     var hex = hexx.toString();//force conversion

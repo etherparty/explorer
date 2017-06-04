@@ -27,7 +27,7 @@
             <tr>
                 <td>Received Time</td>
                 <td>
-                    {{timestamp}}
+                    {{timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}
                 </td>
             </tr>
             <tr>
@@ -94,8 +94,16 @@
               <td><a href="./#/address/{{tx.to}}">{{tx.to}}</a></td>
           </tr>
           <tr>
-              <td>Gas</td>
+              <td>Contract Address</td>
+              <td><a href="./#/address/{{tx.contractAddress}}">{{tx.contractAddress || '??'}}</a></td>
+          </tr>
+          <tr>
+              <td>Gas Sent</td>
               <td>{{tx.gas}}</a></td>
+          </tr>
+          <tr>
+              <td>Gas Used</td>
+              <td>{{tx.gasUsed || '??'}}</a></td>
           </tr>
           <tr>
               <td>Input</td>
