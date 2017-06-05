@@ -83,6 +83,7 @@ angular.module('ethExplorer')
         $scope.init();
 
         function getTransactions(result) {
+          // TODO: move this to a common js (similar function is in addressInfoController.js)
           // parse transactions
           // getBlockTransactionCount doesn't work on testRPC
           //  web3.eth.getBlockTransactionCount($scope.blockId, function(error, result){
@@ -101,6 +102,7 @@ angular.module('ethExplorer')
                 to: result.to,
                 gas: result.gas,
                 input: result.input,
+                decoded: decodeData(result.input),
                 value: result.value
               }
 
@@ -108,15 +110,16 @@ angular.module('ethExplorer')
                 if(!err2) {
                     for (var attrname in receipt) { transaction[attrname] = receipt[attrname]; }
                 }
+                //console.log(transaction);
 
                 $scope.$apply(
                   $scope.transactions.push(transaction)
                 );
-              });
-            });
-          }
+              }); // getTransactionReceipt()
+            }); // getTransactionFromBlock ()
+          } // for each tx in block
 
-        } // getTransactions()
+        } // getTransactions() for block
         //}) //getBlockTransactionCount
 
 
