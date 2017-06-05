@@ -2,7 +2,7 @@ angular.module('ethExplorer')
     .controller('mainCtrl', function ($rootScope, $scope, $location) {
 
 	var web3 = $rootScope.web3;
-	var maxBlocks = 10; // TODO: into setting file or user select
+	var maxBlocks = 30; // TODO: into setting file or user select
 	var blockNum = $scope.blockNum = parseInt(web3.eth.blockNumber, 10);
 	if (maxBlocks > blockNum) {
 	    maxBlocks = blockNum + 1;
@@ -15,7 +15,7 @@ angular.module('ethExplorer')
             number: web3.eth.getBlock(blockNum - i).number,
             length: web3.eth.getBlock(blockNum - i).transactions.length,
             size: web3.eth.getBlock(blockNum - i).size,
-            timestamp: new Date(parseInt(web3.eth.getBlock(blockNum - i).timestamp) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ')
+            timestamp: new Date(parseInt(web3.eth.getBlock(blockNum - i).timestamp) * 1000).toLocaleString()
         }
 	    $scope.blocks.push(block);
 	}
@@ -36,7 +36,6 @@ angular.module('ethExplorer')
             alert('Don\'t know how to handle '+ requestStr)
         };
 
-
         function goToBlockInfos(requestStr) {
             $location.path('/block/'+requestStr);
         }
@@ -51,8 +50,23 @@ angular.module('ethExplorer')
 
         setInterval(function(){
             if(blockNum != parseInt(web3.eth.blockNumber, 10)){
-                window.location.reload();
+                // window.location.reload();
+                blockNum = $scope.blockNum = parseInt(web3.eth.blockNumber, 10);
+                console.log("new"+blockNum);
+                $scope.blocks = [];
+                for (var i = 0; i < maxBlocks; ++i) {
+                    var block = {
+                        number: web3.eth.getBlock(blockNum - i).number,
+                        length: web3.eth.getBlock(blockNum - i).transactions.length,
+                        size: web3.eth.getBlock(blockNum - i).size,
+                        timestamp: new Date(parseInt(web3.eth.getBlock(blockNum - i).timestamp) * 1000).toLocaleString()
+                    }
+                    $scope.blocks.push(block);
+                    $scope.$apply();
+                    console.log( $scope.blocks);
+                }
             }
-        },5000);
+        },10000);
+
 
     });
