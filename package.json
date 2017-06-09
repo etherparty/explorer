@@ -1,8 +1,8 @@
 {
-  "name": "VChainExplorer",
+  "name": "ArchimedesExplorer",
   "private": false,
   "version": "0.1.0",
-  "description": "A lightweight vchain block explorer",
+  "description": "A lightweight archimedes block explorer",
   "repository": "https://github.com/beyonderyue/explorer",
   "license": "MIT",
   "devDependencies": {

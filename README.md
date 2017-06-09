@@ -1,4 +1,4 @@
-# VChainExplorer (Demo)
+# ArchimedesExplorer (Demo)
 
 ##License
 

@@ -37,7 +37,7 @@ angular.module('ethExplorer')
                     $scope.to = result.to;
                     $scope.transactionIndex = result.transactionIndex;
                     $scope.ethValue = result.value.c[0] / 10000; 
-                    $scope.txprice = (result.gas * result.gasPrice)/1000000000000000000 + " VCOIN";
+                    $scope.txprice = (result.gas * result.gasPrice)/1000000000000000000 + " COIN";
                     if($scope.blockNumber!==undefined){
                         $scope.conf = number - $scope.blockNumber;
                         if($scope.conf===0){
