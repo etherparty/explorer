@@ -1,4 +1,4 @@
-# ArchimedesExplorer (Demo)
+# AtlasExplorer (Demo)
 
 ##License
 

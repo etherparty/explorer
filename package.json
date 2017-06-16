@@ -1,8 +1,8 @@
 {
-  "name": "ArchimedesExplorer",
+  "name": "AtlasExplorer",
   "private": false,
   "version": "0.1.0",
-  "description": "A lightweight archimedes block explorer",
+  "description": "A lightweight atlas block explorer",
   "repository": "https://github.com/beyonderyue/explorer",
   "license": "MIT",
   "devDependencies": {
