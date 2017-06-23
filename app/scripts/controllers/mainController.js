@@ -21,7 +21,7 @@ angular.module('ethExplorer')
               return goToAddrInfos(requestStr)
             else if(requestStr.length === 64) {
               if(/[0-9a-zA-Z]{64}?/.test(requestStr))
-                return goToTxInfos(requestStr)
+                return goToTxInfos('0x'+requestStr)
               else if(/[0-9]{1,7}?/.test(requestStr))
                 return goToBlockInfos(requestStr)
             }else if(parseInt(requestStr) > 0)
