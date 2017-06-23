@@ -30,6 +30,7 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
         var eth_node_url = 'http://localhost:8545'; // TODO: remote URL
 	web3.setProvider(new web3.providers.HttpProvider(eth_node_url));
         $rootScope.web3 = web3;
+        $rootScope.abiDecoder = abiDecoder;
         function sleepFor( sleepDuration ){
             var now = new Date().getTime();
             while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 

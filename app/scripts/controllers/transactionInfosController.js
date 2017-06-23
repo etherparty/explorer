@@ -2,7 +2,7 @@ angular.module('ethExplorer')
     .controller('transactionInfosCtrl', function ($rootScope, $scope, $location, $routeParams,$q) {
 
        var web3 = $rootScope.web3;
-	
+
         $scope.init=function()
         {
             $scope.txId=$routeParams.transactionId;
@@ -30,13 +30,17 @@ angular.module('ethExplorer')
                     }
                     $scope.from = result.from;
                     $scope.gas = result.gas;
+                    $scope.gasUsed = result.gasUsed;
+                    $scope.contractAddress = result.contractAddress;
                     $scope.gasPrice = result.gasPrice.c[0] + " WEI";
                     $scope.hash = result.hash;
                     $scope.input = result.input; // that's a string
+                    $scope.decoded = decodeData(result.input);
                     $scope.nonce = result.nonce;
                     $scope.to = result.to;
                     $scope.transactionIndex = result.transactionIndex;
-                    $scope.ethValue = result.value.c[0] / 10000; 
+                    $scope.ethValue = result.value.c[0] / 10000;
+                    console.log(result);
                     $scope.txprice = (result.gas * result.gasPrice)/1000000000000000000 + " ETH";
                     if($scope.blockNumber!==undefined){
                         $scope.conf = number - $scope.blockNumber;
@@ -48,7 +52,7 @@ angular.module('ethExplorer')
                     if($scope.blockNumber!==undefined){
                         var info = web3.eth.getBlock($scope.blockNumber);
                         if(info!==undefined){
-                            $scope.time = info.timestamp;
+                            $scope.time = info.timestamp + '000';
                         }
                     }
 
@@ -68,7 +72,12 @@ angular.module('ethExplorer')
 
                 web3.eth.getTransaction($scope.txId,function(error, result) {
                     if(!error){
-                        deferred.resolve(result);
+                        web3.eth.getTransactionReceipt($scope.txId,function(err2, receipt) {
+                            if(!err2) {
+                                for (var attrname in receipt) { result[attrname] = receipt[attrname]; }
+                            }
+                            deferred.resolve(result);
+                        });
                     }
                     else{
                         deferred.reject(error);
@@ -77,8 +86,6 @@ angular.module('ethExplorer')
                 return deferred.promise;
 
             }
-
-
 
         };
         $scope.init();

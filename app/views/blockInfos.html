@@ -27,7 +27,7 @@
             <tr>
                 <td>Received Time</td>
                 <td>
-                    {{timestamp}}
+                    {{timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}
                 </td>
             </tr>
             <tr>
@@ -51,6 +51,10 @@
             <tr>
                 <td>Gas Limit</td>
                 <td>{{gasLimit}}</td>
+            </tr>
+            <tr>
+                <td>Tx Count</td>
+                <td>{{txCount}}</td>
             </tr>
             <tr>
                 <td>Data</td>
@@ -90,16 +94,28 @@
               <td><a href="./#/address/{{tx.to}}">{{tx.to}}</a></td>
           </tr>
           <tr>
-              <td>Gas</td>
+              <td>Value</td>
+              <td>{{tx.value}}</a></td>
+          </tr>
+          <tr>
+              <td>Contract Address</td>
+              <td><a href="./#/address/{{tx.contractAddress}}">{{tx.contractAddress || '??'}}</a></td>
+          </tr>
+          <tr>
+              <td>Gas Sent</td>
               <td>{{tx.gas}}</a></td>
+          </tr>
+          <tr>
+              <td>Gas Used</td>
+              <td>{{tx.gasUsed || '??'}}</a></td>
           </tr>
           <tr>
               <td>Input</td>
               <td>{{tx.input}}</a></td>
           </tr>
           <tr>
-              <td>Value</td>
-              <td>{{tx.value}}</a></td>
+              <td>Decoded Input</td>
+              <td><pre>{{tx.decoded}}</pre></td>
           </tr>
           </tbody>
       </table>

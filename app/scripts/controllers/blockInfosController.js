@@ -37,10 +37,11 @@ angular.module('ethExplorer')
                     $scope.number = result.number;
                     $scope.parentHash = result.parentHash;
                     $scope.blockNumber = result.number;
-                    $scope.timestamp = result.timestamp;
+                    $scope.timestamp = result.timestamp + '000';
                     $scope.extraData = result.extraData;
                     $scope.dataFromHex = hex2a(result.extraData);
                     $scope.size = result.size;
+                    $scope.txCount = result.transactions.length;
                     if($scope.blockNumber!==undefined){
                         $scope.conf = number - $scope.blockNumber + " Confirmations";
                         if($scope.conf===0 + " Confirmations"){
@@ -55,9 +56,7 @@ angular.module('ethExplorer')
                             $scope.time = newDate.toUTCString();
                         }
                     }
-
-
-
+                    getTransactions(result);
                 });
 
             } else {
@@ -70,6 +69,7 @@ angular.module('ethExplorer')
 
                 web3.eth.getBlock($scope.blockId,function(error, result) {
                     if(!error) {
+                        //console.debug("getBlockInfos: ", result);
                         deferred.resolve(result);
                     } else {
                         deferred.reject(error);
@@ -79,18 +79,22 @@ angular.module('ethExplorer')
 
             }
 
-
         };
         $scope.init();
 
-        // parse transactions
-        $scope.transactions = []
-        web3.eth.getBlockTransactionCount($scope.blockId, function(error, result){
-          var txCount = result
+        function getTransactions(result) {
+          // TODO: move this to a common js (similar function is in addressInfoController.js)
+          // parse transactions
+          // getBlockTransactionCount doesn't work on testRPC
+          //  web3.eth.getBlockTransactionCount($scope.blockId, function(error, result){
+          //var txCount = result
+
+          txCount = result.transactions.length;
+          $scope.transactions = []
 
           for (var blockIdx = 0; blockIdx < txCount; blockIdx++) {
             web3.eth.getTransactionFromBlock($scope.blockId, blockIdx, function(error, result) {
-
+              // console.debug("getTransactionFromBlock: ", result);
               var transaction = {
                 id: result.hash,
                 hash: result.hash,
@@ -98,14 +102,25 @@ angular.module('ethExplorer')
                 to: result.to,
                 gas: result.gas,
                 input: result.input,
+                decoded: decodeData(result.input),
                 value: result.value
               }
-              $scope.$apply(
-                $scope.transactions.push(transaction)
-              )
-            })
-          }
-        })
+
+              web3.eth.getTransactionReceipt(result.hash, function (err2, receipt) {
+                if(!err2) {
+                    for (var attrname in receipt) { transaction[attrname] = receipt[attrname]; }
+                }
+                //console.log(transaction);
+
+                $scope.$apply(
+                  $scope.transactions.push(transaction)
+                );
+              }); // getTransactionReceipt()
+            }); // getTransactionFromBlock ()
+          } // for each tx in block
+
+        } // getTransactions() for block
+        //}) //getBlockTransactionCount
 
 
 function hex2a(hexx) {
