@@ -30,6 +30,8 @@ angular.module('ethExplorer')
                     }
                     $scope.from = result.from;
                     $scope.gas = result.gas;
+                    $scope.gasUsed = result.gasUsed;
+                    $scope.contractAddress = result.contractAddress;
                     $scope.gasPrice = result.gasPrice.c[0] + " WEI";
                     $scope.hash = result.hash;
                     $scope.input = result.input; // that's a string
@@ -68,7 +70,12 @@ angular.module('ethExplorer')
 
                 web3.eth.getTransaction($scope.txId,function(error, result) {
                     if(!error){
-                        deferred.resolve(result);
+                        web3.eth.getTransactionReceipt($scope.txId,function(err2, receipt) {
+                            if(!err2) {
+                                for (var attrname in receipt) { result[attrname] = receipt[attrname]; }
+                            }
+                            deferred.resolve(result);
+                        });
                     }
                     else{
                         deferred.reject(error);
