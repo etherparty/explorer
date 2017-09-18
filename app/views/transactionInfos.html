@@ -1,81 +1,88 @@
 <div class="container" style="padding-top: 50px;">
 
-    <h1>Transaction
+     <h1>Transaction
         <small>View information about an Ethereum transaction</small>
     </h1>
 
-    <div id="tx-97785883" class="txdiv">
-        <table class="table table-striped" cellpadding="0" cellspacing="0" style="padding:0px;float:left;margin:0px;width:100%">
-            <tbody>
-            <tr>
-                <th colspan="3" align="left"><a class="hash-link" href="./#!/transaction/{{txId}}">{{txId}}</a> <span class="pull-right"></span></th>
-            </tr>
-            <tr>
-                <td width="500px" class="">
-                    <a href="./#!/address/{{from}}">{{from}}</a>
-                    <br>
-                </td>
-                <td width="48px" class="" style="padding:4px;text-align:center;vertical-align:middle;">
-                    <img src="https://blockchain.info/Resources/arrow_right_green.png">  <!--TODO upload the image on the server-->
-                </td>
-                <td class="">
-                    <a href="./#!/address/{{to}}">{{to}}</a>
-                    <span class="pull-right">
+     <div id="tx-97785883" class="txdiv">
+          <table class="table table-striped" cellpadding="0" cellspacing="0" style="padding:0px;float:left;margin:0px;width:100%">
+               <tbody>
+                    <tr>
+                         <th colspan="3" align="left"><a class="hash-link" href="./#!/transaction/{{txId}}">{{txId}}</a> <span class="pull-right"></span></th>
+                    </tr>
+                    <tr>
+                         <td width="500px" class="">
+                              <a href="./#!/address/{{from}}">{{from}}</a>
+                              <br>
+                         </td>
+                         <td width="48px" class="" style="padding:4px;text-align:center;vertical-align:middle;">
+                              <img src="https://blockchain.info/Resources/arrow_right_green.png">
+                              <!--TODO upload the image on the server-->
+                         </td>
+                         <td class="">
+                              <a href="./#!/address/{{to}}">{{to}}</a>
+                              <span class="pull-right">
                         <span>{{ethValue}} ETH</span>
-                    </span>
-                    <br>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <div style="padding-bottom:30px;width:100%;text-align:right;clear:both">   <!--TODO no style tags...-->
-            <button class="btn btn-primary">{{conf}} Confirmations</button>
-            <button class="btn btn-success cb"><span>{{ethValue}} ETH</span></button>
-        </div>
-        <table class="table table-striped">
-            <tbody><tr>
-                <th colspan="2" style="text-align:left">Summary</th>
-            </tr>
-            <tr>
-                <td>Block Hash</td>
-                <td><a href="./#!/block/{{blockHash}}">{{blockHash}}</a></td>
-            </tr>
-            <tr>
-                <td>Received Time</td>
-                <td>
-                    {{time}}
-                </td>
-            </tr>
-            <tr>
-                <td>Included In Block</td>
-                <td>
-                    <a href="./#!/block/{{blockNumber}}">{{blockNumber}}</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Gas Used</td>
-                <td>{{gas}}</td>
-            </tr>
-            <tr>
-                <td>Gas Price</td>
-                <td>{{gasPrice}}</td>
-            </tr>
-            <tr>
-                <td>Number of transactions made by the sender prior to this one</td>
-                <td>{{nonce}}</td>
-            </tr>
-            <tr>
-                <td>Transaction price</td>
-                <td>{{txprice}}</td>
-            </tr>
-            <tr>
-                <td>Data</td>
-                <td>{{input}}</td>
-            </tr>
-
-
-            </tbody>
-        </table>
-    </div>
+                              </span>
+                              <br>
+                         </td>
+                    </tr>
+               </tbody>
+          </table>
+          <div style="padding-bottom:30px;width:100%;text-align:right;clear:both">
+               <!--TODO no style tags...-->
+               <button class="btn btn-primary">{{conf}} Confirmations</button>
+               <button class="btn btn-success cb"><span>{{ethValue}} ETH</span></button>
+          </div>
+          <table class="table table-striped">
+               <tbody>
+                    <tr>
+                         <th colspan="2" style="text-align:left">Summary</th>
+                    </tr>
+                    <tr>
+                         <td>Block Hash</td>
+                         <td><a href="./#!/block/{{blockHash}}">{{blockHash}}</a></td>
+                    </tr>
+                    <tr>
+                         <td>Received Time</td>
+                         <td>
+                              {{time}}
+                         </td>
+                    </tr>
+                    <tr>
+                         <td>Included In Block</td>
+                         <td>
+                              <a href="./#!/block/{{blockNumber}}">{{blockNumber}}</a>
+                         </td>
+                    </tr>
+                    <tr>
+                         <td>Gas Used</td>
+                         <td>{{gas}}</td>
+                    </tr>
+                    <tr>
+                         <td>Gas Price</td>
+                         <td>{{gasPrice}}</td>
+                    </tr>
+                    <tr>
+                         <td>Number of transactions made by the sender prior to this one</td>
+                         <td>{{nonce}}</td>
+                    </tr>
+                    <tr>
+                         <td>Transaction price</td>
+                         <td>{{txprice}}</td>
+                    </tr>
+                    <tr>
+                         <td>Data</td>
+                         <td>
+                              <span>
+                                   <textarea readonly ng-model="input" spellcheck="false" rows="4" id="inputdata"></textarea>
+                                   <br>
+                              </span>
+                              <button ng-click="toggle = !toggle" ng-show="showButton">{{toggleText}}</button>
+                         </td>
+                    </tr>
+               </tbody>
+          </table>
+     </div>
 
 </div>
