@@ -28,3 +28,12 @@
   content: "";
   padding: 0;
 }
+
+#inputdata {
+     width: 100%;
+     resize: vertical;
+     font-size: small;
+     font-family: Monospace;
+     padding: 8px;
+     background-color: #EEEEEE;
+}
