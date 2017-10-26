@@ -2,11 +2,11 @@
 
 ![EthExplorer Screenshot](http://i.imgur.com/NHFYq0x.png)
 
-##License
+## License
 
 GPL (see LICENSE)
 
-##Installation
+## Installation
 
 Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git installation") if you haven't already
 
