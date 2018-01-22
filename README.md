@@ -2,11 +2,11 @@
 
 ![EthExplorer Screenshot](http://i.imgur.com/NHFYq0x.png)
 
-##License
+## License
 
 GPL (see LICENSE)
 
-##Installation
+## Installation
 
 Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git installation") if you haven't already
 
@@ -26,4 +26,12 @@ Then visit http://localhost:8000 in your browser of choice. You might get an err
 
 Install [geth](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum "Geth install") if you don't already have it, then run the above command.
 
-Then refresh the page in your browser 
+Then refresh the page in your browser
+
+## Docker
+
+If you are using Docker, you can use this [Docker image from DockerHub](https://hub.docker.com/r/zulhfreelancer/ethereum_explorer/). See [Dockerfile](Dockerfile).
+
+```
+$ docker run --name block_explorer --rm -it -p 8000:8000 zulhfreelancer/ethereum_explorer:latest
+```
