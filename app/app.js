@@ -27,16 +27,17 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
     }])
     .run(function($rootScope) {
         var web3 = new Web3();
-        var eth_node_url = 'http://localhost:8545'; // TODO: remote URL
+        var host = window.location.hostname;
+        var eth_node_url = 'http://' + host + ':8545';
 	web3.setProvider(new web3.providers.HttpProvider(eth_node_url));
         $rootScope.web3 = web3;
         function sleepFor( sleepDuration ){
             var now = new Date().getTime();
-            while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
+            while(new Date().getTime() < now + sleepDuration){ /* do nothing */ }
         }
         var connected = false;
         if(!web3.isConnected()) {
-            $('#connectwarning').modal({keyboard:false,backdrop:'static'}) 
-            $('#connectwarning').modal('show') 
+            $('#connectwarning').modal({keyboard:false,backdrop:'static'})
+            $('#connectwarning').modal('show')
         }
     });
