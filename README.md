@@ -16,6 +16,8 @@ Clone the repo
 
 Download [Nodejs and npm](https://docs.npmjs.com/getting-started/installing-node "Nodejs install") if you don't have them
 
+Note: by default Explorer connects to RPC on localhost:8545. If you set a different port in `--rpcport` when you started geth please change that in app.js
+
 Start the program. All dependencies will be automatically downloaded
 
 `npm start`
