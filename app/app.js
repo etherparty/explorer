@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
+angular.module('ethExplorer', ['ngRoute', 'ui.bootstrap'])
 
-.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.
+    .config(['$routeProvider',
+        function($routeProvider) {
+            $routeProvider.
             when('/', {
                 templateUrl: 'views/main.html',
                 controller: 'mainCtrl'
@@ -24,19 +24,25 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
             otherwise({
                 redirectTo: '/'
             });
-    }])
+        }
+    ])
     .run(function($rootScope) {
         var web3 = new Web3();
-        var eth_node_url = 'http://localhost:8545'; // TODO: remote URL
-	web3.setProvider(new web3.providers.HttpProvider(eth_node_url));
+        var eth_node_url = 'http://localhost:8501'; // TODO: remote URL
+        web3.setProvider(new web3.providers.HttpProvider(eth_node_url));
         $rootScope.web3 = web3;
-        function sleepFor( sleepDuration ){
+
+        function sleepFor(sleepDuration) {
             var now = new Date().getTime();
-            while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
+            while (new Date().getTime() < now + sleepDuration) { /* do nothing */ }
         }
         var connected = false;
-        if(!web3.isConnected()) {
-            $('#connectwarning').modal({keyboard:false,backdrop:'static'}) 
-            $('#connectwarning').modal('show') 
+        if (!web3.isConnected()) {
+            $('#connectwarning').modal({
+                keyboard: false,
+                backdrop: 'static'
+            });
+            
+            $('#connectwarning').modal('show')
         }
     });

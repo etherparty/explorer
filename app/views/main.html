@@ -1,27 +1,44 @@
-<div class="container" style="padding-top: 50px;">
+<div class="container main-page" style="padding-top: 50px;">
+    <div class="row">
 
-    <h1 style="text-align:center;">Welcome to the Etherparty Block Explorer!</h1>
-
-    <h4 style="text-align:center; margin-top: 30px;">
-      <a href="/#/block/{{blockNum}}">Latest Block: {{blockNum}}</a>
-    </h4>
-
+        <div class="col-md-3">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <a href="https://www.horizonafrica.io">
+                        <img alt="Horizon Africa" src="/assets/images/logo.png" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-warning">
+                <div class="panel-body">This is the Horizon Africa TestNet. The TestNet can be reset at any given time, although prior notice will be posted here.</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-info">
+                <div class="panel-body">Latest Block:&nbsp;
+                    <span class="" style="font-weight: bold;">{{blockNum}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <table class="table table-striped" cellpadding="0" cellspacing="0" style="padding:0px;float:left;margin:0px;width:100%">
-      <tbody>
-	<tr>
-	  <th>Block #</th>
-	  <th>Tx #</th>
- 	  <th>Size</th>
-	  <th>Timestamp</th>
-	</tr>
-	<tr data-ng-repeat="i in blocks">
-	  <td><a href="/#/block/{{i.number}}">{{i.number}}</a></td>
-	  <td>{{i.transactions.length}}</td>
-	  <td>{{i.size}}</td>
-	  <td>{{i.timestamp}}</td>
-        </tr>
-
-      </tbody>
+        <tbody>
+            <tr>
+                <th>Block #</th>
+                <th>Tx #</th>
+                <th>Size</th>
+                <th>Timestamp</th>
+            </tr>
+            <tr data-ng-repeat="i in blocks">
+                <td><a href="/#/block/{{i.number}}">{{i.number}}</a></td>
+                <td>{{i.transactions.length}}</td>
+                <td>{{i.size}}</td>
+                <td>{{i.timestamp}}</td>
+            </tr>
+        </tbody>
     </table>
-
+    
 </div>
