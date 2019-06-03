@@ -1,18 +1,12 @@
-# EthExplorer (In Progress)
-
-![EthExplorer Screenshot](http://i.imgur.com/NHFYq0x.png)
+# HorizonAfrica Block Explorer
 
 ##License
 
-GPL (see LICENSE)
+[GPL LICENSE](https://github.com/horizonafricablockchain/explorer/blob/master/LICENSE "GPL LICENSE")
 
 ##Installation
 
-Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git installation") if you haven't already
-
-Clone the repo
-
-`git clone https://github.com/etherparty/explorer`
+`git clone https://github.com/horizonafricablockchain/explorer`
 
 Download [Nodejs and npm](https://docs.npmjs.com/getting-started/installing-node "Nodejs install") if you don't have them
 
@@ -26,4 +20,4 @@ Then visit http://localhost:8000 in your browser of choice. You might get an err
 
 Install [geth](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum "Geth install") if you don't already have it, then run the above command.
 
-Then refresh the page in your browser 
+Then refresh the page in your browser
